@@ -639,12 +639,27 @@ transition:.4s;
 transform:translateY(-5px);
 box-shadow:0 10px 30px rgba(125,196,255,.3);
 }
+/* SCROLL PROGRESS BAR */
+
+.progress-bar{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+width:0%;
+
+background:linear-gradient(90deg,#7dc4ff,#c9a7ff);
+z-index:9999;
+
+transition:width .1s;
+}
 
 </style>
 </head>
 
 <body>
 
+<div class="progress-bar"></div>
 <div class="blur1"></div>
 <div class="blur2"></div>
 <div class="blur3"></div>
@@ -906,6 +921,17 @@ el.style.transform =
 
 });
 
+});
+
+</script>
+<script>
+
+window.addEventListener("scroll", ()=>{
+let scrollTop = window.scrollY;
+let docHeight = document.body.scrollHeight - window.innerHeight;
+let scrolled = (scrollTop / docHeight) * 100;
+
+document.querySelector(".progress-bar").style.width = scrolled + "%";
 });
 
 </script>
