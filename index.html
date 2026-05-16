@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enriko Portfolio</title>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+overflow:hidden;
+}
+
+.swiper{
+width:100%;
+height:100vh;
+}
+
+.swiper-slide{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+font-size:40px;
+background:#111;
+}
+
+h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+p{
+font-size:20px;
+opacity:.8;
+}
+
+.about{
+background:#141414;
+}
+
+.skills{
+background:#1a1a1a;
+}
+
+.contact{
+background:#202020;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="swiper mySwiper">
+
+<div class="swiper-wrapper">
+
+<div class="swiper-slide">
+<h1>ENRIKO FAZAR</h1>
+<p>Engineer • Operations Support</p>
+</div>
+
+<div class="swiper-slide about">
+<h1>ABOUT ME</h1>
+<p>Gas Monitoring • Reporting • Instrument Control</p>
+</div>
+
+<div class="swiper-slide skills">
+<h1>SKILLS</h1>
+<p>AutoCAD • Excel • IoT • Monitoring</p>
+</div>
+
+<div class="swiper-slide contact">
+<h1>CONTACT</h1>
+<p>ricofm16@gmail.com</p>
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+
+var swiper = new Swiper(".mySwiper", {
+effect: "slide",
+grabCursor: true,
+centeredSlides: true,
+slidesPerView: 1,
+loop: true,
+
+autoplay: {
+delay: 2500,
+disableOnInteraction: false,
+},
+
+speed:1000,
+
+});
+
+</script>
+
+</body>
+</html>
