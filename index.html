@@ -764,6 +764,10 @@ justify-content:center;
 transform-style:preserve-3d;
 transition:transform .2s ease, box-shadow .3s ease;
 }
+.blur1, .blur2, .blur3{
+will-change: transform;
+transition: transform .1s linear;
+}
 
 </style>
 </head>
@@ -1027,17 +1031,20 @@ reset:false
 }
 );
 
-window.addEventListener('scroll',()=>{
+<script>
 
-document.querySelectorAll('.blur1,.blur2,.blur3')
-.forEach((el,index)=>{
+window.addEventListener("scroll", () => {
 
-let speed = (index + 1) * 0.15;
+let scrollY = window.scrollY;
 
-el.style.transform =
-`translateY(${window.scrollY * speed}px)`;
+document.querySelector(".blur1").style.transform =
+`translate(${scrollY * 0.05}px, ${scrollY * 0.15}px)`;
 
-});
+document.querySelector(".blur2").style.transform =
+`translate(${-scrollY * 0.08}px, ${scrollY * 0.1}px)`;
+
+document.querySelector(".blur3").style.transform =
+`translate(${scrollY * 0.03}px, ${-scrollY * 0.12}px)`;
 
 });
 
