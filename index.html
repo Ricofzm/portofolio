@@ -477,6 +477,68 @@ padding:50px 25px;
 width:130px;
 height:130px;
 }
+/* SPLIT ABOUT */
+
+.about-split{
+display:grid;
+grid-template-columns:1fr 2fr;
+gap:40px;
+align-items:center;
+}
+
+/* GLASS PROFILE CARD */
+
+.about-profile{
+background:rgba(255,255,255,.28);
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.35);
+border-radius:35px;
+
+padding:40px;
+text-align:center;
+
+box-shadow:0 10px 40px rgba(0,0,0,.05);
+
+transition:.4s;
+}
+
+.about-profile:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 40px rgba(125,196,255,.25);
+}
+
+.about-img{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+
+border:5px solid rgba(255,255,255,.5);
+box-shadow:0 10px 30px rgba(125,196,255,.35);
+
+margin-bottom:20px;
+
+animation:float 5s ease-in-out infinite;
+}
+
+.about-profile h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.about-profile p{
+color:#555;
+line-height:1.6;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+.about-split{
+grid-template-columns:1fr;
+}
 
 }
 
@@ -504,8 +566,6 @@ height:130px;
 <section class="hero">
 
 <div class="hero-content">
-
-<img src="enriko.jpg" class="profile">
 
 <h1>
 <span style="font-weight:300;">I'm</span> Enriko<br>Fazar Maulana
