@@ -670,12 +670,81 @@ z-index:9999;
 
 transition:transform .08s linear;
 }
+/* LOADING SCREEN */
+
+.loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+
+background:linear-gradient(135deg,#eef3f9,#f8f9fb);
+display:flex;
+align-items:center;
+justify-content:center;
+
+z-index:99999;
+
+transition:opacity .8s ease, visibility .8s ease;
+}
+
+.loader-box{
+text-align:center;
+}
+
+.loader-text{
+font-size:28px;
+font-weight:700;
+letter-spacing:4px;
+margin-bottom:20px;
+}
+
+.loader-bar{
+width:180px;
+height:4px;
+
+background:rgba(0,0,0,.1);
+border-radius:10px;
+overflow:hidden;
+position:relative;
+}
+
+.loader-bar::before{
+content:"";
+position:absolute;
+left:-50%;
+width:50%;
+height:100%;
+
+background:linear-gradient(90deg,#7dc4ff,#c9a7ff);
+
+animation:loadMove 1.2s infinite;
+}
+
+@keyframes loadMove{
+0%{left:-50%;}
+100%{left:100%;}
+}
+
+/* HIDE LOADER */
+
+.loader.hide{
+opacity:0;
+visibility:hidden;
+}
 
 </style>
 </head>
 
 <body>
 
+<div class="loader">
+    <div class="loader-box">
+        <div class="loader-text">ENRIKO</div>
+        <div class="loader-bar"></div>
+    </div>
+</div>
 <div class="cursor-glow"></div>
 <div class="progress-bar"></div>
 <div class="blur1"></div>
@@ -960,6 +1029,16 @@ const cursor = document.querySelector(".cursor-glow");
 document.addEventListener("mousemove",(e)=>{
 cursor.style.left = e.clientX + "px";
 cursor.style.top = e.clientY + "px";
+});
+
+</script>
+<script>
+
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+document.querySelector(".loader").classList.add("hide");
+document.body.style.opacity = "1";
+},1500);
 });
 
 </script>
