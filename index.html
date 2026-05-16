@@ -758,12 +758,92 @@ body::after {
   opacity: 0.4;
   z-index: -1;
 }
+/* ===== AI BACKGROUND WRAPPER ===== */
+.ai-bg{
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0b1220, #0f1a2b);
+}
+
+/* ===== GRID (kayak AI interface) ===== */
+.ai-grid{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.25;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove{
+  0%{transform: translateY(0);}
+  100%{transform: translateY(60px);}
+}
+
+/* ===== GLOW ORB ===== */
+.ai-glow{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: floatAI 12s ease-in-out infinite;
+}
+
+/* warna AI neon */
+.g1{
+  background: #4b8bff;
+  top: -120px;
+  left: -120px;
+}
+
+.g2{
+  background: #8a5cff;
+  bottom: -150px;
+  right: -150px;
+  animation-delay: 2s;
+}
+
+.g3{
+  background: #00d4ff;
+  top: 40%;
+  left: 35%;
+  animation-delay: 4s;
+}
+
+/* gerakan float */
+@keyframes floatAI{
+  0%   { transform: translate(0,0) scale(1); }
+  25%  { transform: translate(80px,-60px) scale(1.1); }
+  50%  { transform: translate(-80px,100px) scale(0.95); }
+  75%  { transform: translate(60px,40px) scale(1.05); }
+  100% { transform: translate(0,0) scale(1); }
+}
+.ai-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.06;
+  mix-blend-mode:overlay;
+}
 
 </style>
 </head>
 
 <body>
 
+<div class="ai-bg">
+  <div class="ai-grid"></div>
+  <div class="ai-glow g1"></div>
+  <div class="ai-glow g2"></div>
+  <div class="ai-glow g3"></div>
+</div>
 <div class="loader">
     <div class="loader-box">
         <div class="loader-text">ENRIKO<br>Portofolio</div>
