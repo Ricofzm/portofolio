@@ -733,6 +733,31 @@ animation:loadMove 1.2s infinite;
 opacity:0;
 visibility:hidden;
 }
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: #7dc4ff;
+  filter: blur(120px);
+  top: -100px;
+  left: -100px;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: #c9a7ff;
+  filter: blur(120px);
+  bottom: -100px;
+  right: -100px;
+  opacity: 0.4;
+  z-index: -1;
+}
 
 </style>
 </head>
