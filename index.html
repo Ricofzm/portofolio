@@ -987,12 +987,14 @@ loop:true
 });
 
 ScrollReveal().reveal(
-'.hero-content,.about-card,.skill-box,.timeline-item,.gallery img,.socials',{
-distance:'60px',
-duration:1800,
-delay:200,
-origin:'bottom',
-reset:false
+".about-card,.skill-box,.timeline-item,.gallery img,.contact-card",
+{
+distance: "60px",
+duration: 1200,
+origin: "bottom",
+interval: 120,
+reset: true,
+cleanup: true
 }
 );
 </script>
