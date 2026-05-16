@@ -1036,37 +1036,6 @@ document.body.style.opacity = "1";
 },1500);
 });
 
-const cards = document.querySelectorAll(
-".about-card, .skill-box, .timeline-item, .contact-card"
-);
-
-cards.forEach(card => {
-
-card.addEventListener("mousemove", (e) => {
-
-let rect = card.getBoundingClientRect();
-
-let x = e.clientX - rect.left;
-let y = e.clientY - rect.top;
-
-let centerX = rect.width / 2;
-let centerY = rect.height / 2;
-
-let rotateX = (y - centerY) / 15;
-let rotateY = (centerX - x) / 15;
-
-card.style.transform =
-`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-
-});
-
-card.addEventListener("mouseleave", () => {
-card.style.transform =
-"perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
-});
-
-});
-
 </script>
 
 </body>
