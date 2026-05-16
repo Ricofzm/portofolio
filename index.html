@@ -1027,28 +1027,14 @@ reset:false
 }
 );
 
-<script>
-
-const blurs = document.querySelectorAll(".blur1,.blur2,.blur3");
-
-window.addEventListener("scroll", () => {
-
-let scrollY = window.scrollY;
-
-blurs.forEach((el, i) => {
-
-let speed = (i + 1) * 0.08;
-
-let y = scrollY * speed;
-let x = Math.sin(scrollY * 0.002 + i) * 20;
-
-el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-
+window.addEventListener('scroll',()=>{
+document.querySelectorAll('.blur1,.blur2,.blur3')
+.forEach((el,index)=>{
+let speed = (index + 1) * 0.15;
+el.style.transform =
+`translateY(${window.scrollY * speed}px)`;
 });
-
 });
-
-</script>
 <script>
 
 window.addEventListener("scroll", ()=>{
