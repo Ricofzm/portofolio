@@ -733,6 +733,28 @@ animation:loadMove 1.2s infinite;
 opacity:0;
 visibility:hidden;
 }
+/* SMOOTH SNAP SCROLL */
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+scroll-snap-type:y mandatory;
+}
+
+/* tiap section jadi snap point */
+
+section{
+scroll-snap-align:start;
+scroll-snap-stop:always;
+}
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
 
 </style>
 </head>
