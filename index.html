@@ -1026,7 +1026,9 @@ origin:'bottom',
 reset:false
 }
 );
+</script>
 
+<script>
 window.addEventListener('scroll',()=>{
 document.querySelectorAll('.blur1,.blur2,.blur3')
 .forEach((el,index)=>{
@@ -1035,6 +1037,8 @@ el.style.transform =
 `translateY(${window.scrollY * speed}px)`;
 });
 });
+</script>
+
 <script>
 
 window.addEventListener("scroll", ()=>{
@@ -1046,6 +1050,7 @@ document.querySelector(".progress-bar").style.width = scrolled + "%";
 });
 
 </script>
+
 <script>
 
 const cursor = document.querySelector(".cursor-glow");
@@ -1056,6 +1061,7 @@ cursor.style.top = e.clientY + "px";
 });
 
 </script>
+
 <script>
 
 window.addEventListener("load",()=>{
@@ -1066,6 +1072,7 @@ document.body.style.opacity = "1";
 });
 
 </script>
+
 <script>
 
 const cards = document.querySelectorAll(
