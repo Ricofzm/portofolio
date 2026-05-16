@@ -29,6 +29,8 @@ background:
 linear-gradient(135deg,#eef3f9,#f8f9fb);
 color:#111;
 overflow-x:hidden;
+opacity:0;
+transition:1s;
 }
 
 /* BLUR BACKGROUND */
@@ -115,10 +117,23 @@ text-decoration:none;
 color:#222;
 font-weight:500;
 transition:.3s;
+position:relative;
 }
 
-nav ul li a:hover{
-opacity:.6;
+nav ul li a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#7dc4ff;
+transition:.3s;
+border-radius:10px;
+}
+
+nav ul li a:hover::after{
+width:100%;
 }
 
 /* HERO */
@@ -174,6 +189,10 @@ font-weight:700;
 letter-spacing:-4px;
 line-height:1;
 margin-bottom:20px;
+
+background:linear-gradient(90deg,#111,#4b6cb7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero h3{
@@ -313,6 +332,41 @@ flex-direction:column;
 gap:30px;
 }
 
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.25);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.35);
+
+box-shadow:
+0 8px 30px rgba(0,0,0,.05);
+
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.03) translateY(-5px);
+
+box-shadow:
+0 10px 40px rgba(125,196,255,.25);
+}
+
 /* CONTACT */
 
 .contact{
@@ -448,6 +502,7 @@ height:130px;
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 
@@ -572,6 +627,65 @@ Hourly & daily reporting with monitoring documentation.
 
 </section>
 
+<section id="experience">
+
+<h2 class="section-title">Work Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>Operations Support & Gas Monitoring</h3>
+
+<p>
+Handling operational reporting, instrumentation monitoring,
+pressure regulator systems, stock coordination,
+and operational documentation.
+</p>
+
+<div class="gallery">
+
+<img src="kerja1.jpg">
+<img src="kerja2.jpg">
+<img src="kerja3.jpg">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="organization">
+
+<h2 class="section-title">Organization Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>Organization & Team Activities</h3>
+
+<p>
+Active in teamwork activities, coordination,
+communication, and organizational responsibilities.
+</p>
+
+<div class="gallery">
+
+<img src="organisasi1.jpg">
+<img src="organisasi2.jpg">
+<img src="organisasi3.jpg">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 <section id="contact" class="contact">
 
 <h2 class="section-title">Contact</h2>
@@ -580,11 +694,21 @@ Hourly & daily reporting with monitoring documentation.
 
 <div class="socials">
 
-<a href="#"><i class='bx bxl-github'></i></a>
+<a href="https://github.com/ricofzm" target="_blank">
+<i class='bx bxl-github'></i>
+</a>
 
-<a href="#"><i class='bx bxl-linkedin'></i></a>
+<a href="https://linkedin.com" target="_blank">
+<i class='bx bxl-linkedin'></i>
+</a>
 
-<a href="#"><i class='bx bx-envelope'></i></a>
+<a href="mailto:ricofm16@gmail.com">
+<i class='bx bx-envelope'></i>
+</a>
+
+<a href="https://instagram.com" target="_blank">
+<i class='bx bxl-instagram'></i>
+</a>
 
 </div>
 
@@ -595,6 +719,10 @@ Hourly & daily reporting with monitoring documentation.
 </footer>
 
 <script>
+
+window.onload = ()=>{
+document.body.style.opacity = "1";
+}
 
 new Typed(".typing",{
 strings:[
@@ -609,7 +737,7 @@ loop:true
 });
 
 ScrollReveal().reveal(
-'.hero-content,.about-card,.skill-box,.project-card,.timeline-item,.socials',{
+'.hero-content,.about-card,.skill-box,.project-card,.timeline-item,.gallery img,.socials',{
 distance:'60px',
 duration:1800,
 delay:200,
