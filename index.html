@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Enriko Fazar | Portfolio</title>
+<title>Enriko Fazar Portfolio</title>
 
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"/>
+
+<script src="https://unpkg.com/scrollreveal"></script>
 
 <style>
 
@@ -23,30 +24,67 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-background:#f5f5f7;
+background:
+linear-gradient(135deg,#e9eef5,#f8f9fb);
 color:#111;
 overflow-x:hidden;
+}
+
+/* BACKGROUND BLUR */
+
+.blur1,
+.blur2{
+position:fixed;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(120px);
+z-index:-1;
+opacity:.4;
+}
+
+.blur1{
+background:#7dc4ff;
+top:-150px;
+left:-100px;
+}
+
+.blur2{
+background:#d6b3ff;
+bottom:-150px;
+right:-100px;
 }
 
 /* NAVBAR */
 
 nav{
 position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:90%;
+max-width:1200px;
+padding:18px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(255,255,255,.7);
-backdrop-filter:blur(20px);
+
+background:rgba(255,255,255,.35);
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.3);
+border-radius:25px;
+
+box-shadow:
+0 8px 32px rgba(0,0,0,.08);
+
 z-index:1000;
-border-bottom:1px solid rgba(0,0,0,.05);
 }
 
 .logo{
 font-size:22px;
-font-weight:600;
+font-weight:700;
 letter-spacing:1px;
 }
 
@@ -58,7 +96,7 @@ list-style:none;
 
 nav ul li a{
 text-decoration:none;
-color:#333;
+color:#222;
 font-weight:500;
 transition:.3s;
 }
@@ -74,33 +112,48 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+padding:40px;
 text-align:center;
-padding:20px;
 }
 
 .hero-content{
 max-width:900px;
+
+background:rgba(255,255,255,.25);
+backdrop-filter:blur(30px);
+-webkit-backdrop-filter:blur(30px);
+
+padding:70px 50px;
+border-radius:40px;
+
+border:1px solid rgba(255,255,255,.3);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.08);
+
+animation:fadeUp 1.2s ease;
 }
 
 .hero h1{
 font-size:78px;
 font-weight:700;
-letter-spacing:-3px;
-margin-bottom:20px;
+line-height:1;
+letter-spacing:-4px;
+margin-bottom:25px;
 }
 
 .hero h3{
-font-size:32px;
+font-size:30px;
 font-weight:400;
-color:#666;
-margin-bottom:30px;
+color:#555;
+margin-bottom:25px;
 }
 
 .hero p{
 font-size:20px;
 line-height:1.8;
 color:#555;
-max-width:750px;
+max-width:700px;
 margin:auto;
 }
 
@@ -111,30 +164,36 @@ display:inline-block;
 margin-top:40px;
 padding:16px 38px;
 border-radius:50px;
-background:#111;
-color:white;
 text-decoration:none;
-font-weight:500;
-transition:.3s;
+
+background:rgba(255,255,255,.4);
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.4);
+
+color:#111;
+font-weight:600;
+
+transition:.4s;
 }
 
 .btn:hover{
-transform:scale(1.04);
-opacity:.9;
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
 /* SECTION */
 
 section{
-padding:140px 10%;
+padding:120px 10%;
 }
 
 .section-title{
-font-size:58px;
+font-size:60px;
 font-weight:700;
-letter-spacing:-2px;
+letter-spacing:-3px;
+margin-bottom:70px;
 text-align:center;
-margin-bottom:80px;
 }
 
 /* CARD */
@@ -147,18 +206,29 @@ gap:30px;
 }
 
 .about-card,
-.skill-box{
-background:rgba(255,255,255,.7);
-backdrop-filter:blur(20px);
+.skill-box,
+.timeline-item{
+
+background:rgba(255,255,255,.28);
+
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
 padding:40px;
-border-radius:30px;
-border:1px solid rgba(0,0,0,.05);
+border-radius:35px;
+
+border:1px solid rgba(255,255,255,.3);
+
+box-shadow:
+0 8px 30px rgba(0,0,0,.06);
+
 transition:.4s;
 }
 
 .about-card:hover,
-.skill-box:hover{
-transform:translateY(-8px);
+.skill-box:hover,
+.timeline-item:hover{
+transform:translateY(-10px);
 }
 
 .about-card h3,
@@ -167,9 +237,10 @@ margin-bottom:20px;
 font-size:24px;
 }
 
-.about-card p{
-color:#666;
+.about-card p,
+.timeline-item p{
 line-height:1.8;
+color:#555;
 }
 
 .skill-box{
@@ -184,26 +255,9 @@ margin-bottom:20px;
 /* TIMELINE */
 
 .timeline{
-max-width:900px;
-margin:auto;
-}
-
-.timeline-item{
-padding:35px;
-margin-bottom:30px;
-background:white;
-border-radius:25px;
-border:1px solid rgba(0,0,0,.05);
-}
-
-.timeline-item h3{
-margin-bottom:15px;
-font-size:26px;
-}
-
-.timeline-item p{
-color:#666;
-line-height:1.8;
+display:flex;
+flex-direction:column;
+gap:30px;
 }
 
 /* CONTACT */
@@ -222,29 +276,50 @@ margin-top:40px;
 .socials a{
 width:60px;
 height:60px;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 border-radius:50%;
-background:white;
+
+background:rgba(255,255,255,.3);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.3);
+
 color:#111;
 font-size:24px;
 text-decoration:none;
-transition:.3s;
-border:1px solid rgba(0,0,0,.05);
+
+transition:.4s;
 }
 
 .socials a:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
 /* FOOTER */
 
 footer{
-text-align:center;
 padding:40px;
-color:#777;
+text-align:center;
 font-size:14px;
+color:#666;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 /* RESPONSIVE */
@@ -253,19 +328,32 @@ font-size:14px;
 
 .hero h1{
 font-size:48px;
+letter-spacing:-2px;
 }
 
 .hero h3{
-font-size:24px;
+font-size:22px;
+}
+
+.hero p{
+font-size:16px;
 }
 
 .section-title{
 font-size:42px;
 }
 
+nav{
+padding:16px 20px;
+}
+
 nav ul{
 gap:15px;
 font-size:14px;
+}
+
+.hero-content{
+padding:50px 30px;
 }
 
 }
@@ -275,9 +363,11 @@ font-size:14px;
 
 <body>
 
-<!-- NAVBAR -->
+<div class="blur1"></div>
+<div class="blur2"></div>
 
 <nav>
+
 <div class="logo">ENRIKO</div>
 
 <ul>
@@ -286,67 +376,64 @@ font-size:14px;
 <li><a href="#experience">Experience</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-</nav>
 
-<!-- HERO -->
+</nav>
 
 <section class="hero">
 
 <div class="hero-content">
 
-<h1>ENRIKO FAZAR MAULANA</h1>
+<h1>ENRIKO<br>FAZAR</h1>
 
 <h3>Engineer • Operations Support</h3>
 
 <p>
-Experienced in gas monitoring systems, instrumentation control,
-hourly & daily reporting, stock coordination, and operational support.
-Focused on reliability, monitoring systems, and technical operations.
+Experienced in gas monitoring systems,
+instrumentation control, operational reporting,
+and technical operations support.
 </p>
 
-<a href="#contact" class="btn">Contact Me</a>
+<a href="#contact" class="btn">
+Contact Me
+</a>
 
 </div>
 
 </section>
 
-<!-- ABOUT -->
-
 <section id="about">
 
-<h2 class="section-title">About Me</h2>
+<h2 class="section-title">About</h2>
 
 <div class="about-grid">
 
 <div class="about-card">
-<h3>Monitoring System</h3>
+<h3>Monitoring</h3>
 <p>
-Monitoring pressure gauges, EVC, AMR, regulator control,
-and gas distribution systems.
+Monitoring pressure gauges, AMR, EVC,
+regulator systems, and gas distribution.
 </p>
 </div>
 
 <div class="about-card">
-<h3>Operations Support</h3>
+<h3>Operations</h3>
 <p>
-Handling operational reports, stock coordination,
-data recording, and technical documentation.
+Handling operational reports,
+stock coordination, and documentation.
 </p>
 </div>
 
 <div class="about-card">
 <h3>Engineering</h3>
 <p>
-Interested in instrumentation systems,
-IoT technology, and industrial operations.
+Interested in IoT technology,
+instrumentation systems, and automation.
 </p>
 </div>
 
 </div>
 
 </section>
-
-<!-- SKILLS -->
 
 <section id="skills">
 
@@ -360,18 +447,8 @@ IoT technology, and industrial operations.
 </div>
 
 <div class="skill-box">
-<i class='bx bx-cog'></i>
-<h3>Instrumentation</h3>
-</div>
-
-<div class="skill-box">
 <i class='bx bx-data'></i>
 <h3>Reporting</h3>
-</div>
-
-<div class="skill-box">
-<i class='bx bx-buildings'></i>
-<h3>Operations</h3>
 </div>
 
 <div class="skill-box">
@@ -388,8 +465,6 @@ IoT technology, and industrial operations.
 
 </section>
 
-<!-- EXPERIENCE -->
-
 <section id="experience">
 
 <h2 class="section-title">Experience</h2>
@@ -397,34 +472,24 @@ IoT technology, and industrial operations.
 <div class="timeline">
 
 <div class="timeline-item">
-<h3>Operations & Monitoring</h3>
+<h3>Operations Support</h3>
 <p>
-Handling gas monitoring systems, reporting operational data,
-instrument checking, and stock coordination.
+Handling hourly & daily operational reporting,
+instrument monitoring, and stock coordination.
 </p>
 </div>
 
 <div class="timeline-item">
-<h3>Engineering Background</h3>
+<h3>Instrumentation</h3>
 <p>
-Experience with technical systems, instrumentation,
-and industrial operational environments.
-</p>
-</div>
-
-<div class="timeline-item">
-<h3>IoT & Technology</h3>
-<p>
-Interested in automation systems,
-IoT integration, and digital monitoring solutions.
+Experience monitoring pressure systems,
+regulator controls, and gas instrumentation.
 </p>
 </div>
 
 </div>
 
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
@@ -443,6 +508,24 @@ IoT integration, and digital monitoring solutions.
 </div>
 
 </section>
+
+<footer>
+© 2026 Enriko Fazar Maulana
+</footer>
+
+<script>
+
+ScrollReveal().reveal(
+'.hero-content,.about-card,.skill-box,.timeline-item,.socials',{
+distance:'60px',
+duration:1800,
+delay:200,
+origin:'bottom',
+reset:false
+}
+);
+
+</script>
 
 </body>
 </html>
