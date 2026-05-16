@@ -653,12 +653,30 @@ z-index:9999;
 
 transition:width .1s;
 }
+/* CURSOR GLOW */
+
+.cursor-glow{
+position:fixed;
+width:25px;
+height:25px;
+border-radius:50%;
+
+background:rgba(125,196,255,.6);
+filter:blur(12px);
+
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:9999;
+
+transition:transform .08s linear;
+}
 
 </style>
 </head>
 
 <body>
 
+<div class="cursor-glow"></div>
 <div class="progress-bar"></div>
 <div class="blur1"></div>
 <div class="blur2"></div>
@@ -932,6 +950,16 @@ let docHeight = document.body.scrollHeight - window.innerHeight;
 let scrolled = (scrollTop / docHeight) * 100;
 
 document.querySelector(".progress-bar").style.width = scrolled + "%";
+});
+
+</script>
+<script>
+
+const cursor = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
 });
 
 </script>
