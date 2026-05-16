@@ -565,6 +565,80 @@ grid-template-columns:1fr;
 }
 
 }
+/* CONTACT GRID */
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+/* GLASS CARD */
+
+.contact-card{
+background:rgba(255,255,255,.28);
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.35);
+border-radius:30px;
+
+padding:40px 20px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+
+text-decoration:none;
+color:#111;
+
+transition:.4s;
+
+box-shadow:0 8px 30px rgba(0,0,0,.05);
+}
+
+.contact-card i{
+font-size:40px;
+}
+
+.contact-card span{
+font-weight:500;
+}
+
+.contact-card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 10px 40px rgba(125,196,255,.25);
+}
+
+/* RESUME BUTTON */
+
+.resume-btn{
+display:inline-block;
+margin-top:20px;
+
+padding:14px 30px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+background:rgba(125,196,255,.25);
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(125,196,255,.4);
+
+color:#111;
+font-weight:600;
+
+transition:.4s;
+}
+
+.resume-btn:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(125,196,255,.3);
+}
 
 </style>
 </head>
@@ -754,28 +828,33 @@ communication, and organizational responsibilities.
 
 <h2 class="section-title">Contact</h2>
 
-<p>Let's connect and discuss opportunities.</p>
+<p>Let’s connect and discuss opportunities.</p>
 
-<div class="socials">
-
-<!-- RESUME -->
-<a href="https://drive.google.com/drive/folders/1HTF2EXiGMCMPEbzCnv0GzcdT-yI6_5yV?usp=sharing" target="_blank">
-<i class='bx bx-file'></i>
+<!-- RESUME CTA -->
+<a href="https://drive.google.com/drive/folders/1HTF2EXiGMCMPEbzCnv0GzcdT-yI6_5yV?usp=sharing" 
+target="_blank"
+class="resume-btn">
+📄 View Resume
 </a>
 
+<div class="contact-grid">
+
 <!-- LINKEDIN -->
-<a href="https://linkedin.com/in/enrikofm" target="_blank">
+<a href="https://linkedin.com/in/enrikofm" target="_blank" class="contact-card">
 <i class='bx bxl-linkedin'></i>
+<span>LinkedIn</span>
 </a>
 
 <!-- EMAIL -->
-<a href="mailto:ricofm16@gmail.com">
+<a href="mailto:ricofm16@gmail.com" class="contact-card">
 <i class='bx bx-envelope'></i>
+<span>Email</span>
 </a>
 
 <!-- INSTAGRAM -->
-<a href="https://www.instagram.com/enrikofm_16" target="_blank">
+<a href="https://www.instagram.com/enrikofm_16" target="_blank" class="contact-card">
 <i class='bx bxl-instagram'></i>
+<span>Instagram</span>
 </a>
 
 </div>
